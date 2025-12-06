@@ -1,0 +1,49 @@
+body {
+    background-color: cadetblue;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+#ylaosa {
+    background-color: blueviolet;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 28px;
+}
+
+#dataosa {
+    background-color: gold;
+    padding: 20px;
+    text-align: center;
+}
+
+select {
+    width: 300px;
+    padding: 8px;
+    margin-bottom: 10px;
+    background: wheat;
+    border: 2px solid blueviolet;
+    color: blueviolet;
+}
+
+button {
+    padding: 8px 20px;
+    background: wheat;
+    border: 2px solid blueviolet;
+    color: blueviolet;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+table {
+    margin: 20px auto;
+    border-collapse: collapse;
+    width: 50%;
+    background: white;
+}
+
+th, td {
+    border: 1px solid blueviolet;
+    padding: 10px;
+}
