@@ -12,6 +12,7 @@ function taytaPuolueLista() {
 }
 
 
+
 // Hae valitun puolueen edustajat
 async function haeEdustajat() {
     console.log("Hae edustajat kutsuttu")
@@ -31,6 +32,22 @@ async function haeEdustajat() {
     }
 }
 
+async function haeNimella() {
+  const haku = document.getElementById("nimihaku").value.trim();
+  if (!haku) return;
+
+  const url = `http://127.0.0.1:3000/nimi/${encodeURIComponent(haku)}`;
+
+  try {
+    const vastaus = await fetch(url);
+    const data = await vastaus.json(); // [{nimi, puolue, henkilonumero, ministeri}]
+    naytaNimiHakuTaulukko(`Nimihaku: "${haku}"`, data);
+  } catch (e) {
+    console.log("Virhe nimihauissa:", e);
+  }
+}
+
+
 
 // Tee HTML-taulukko edustajista
 function teeTaulukko(lista) {
@@ -43,7 +60,43 @@ function teeTaulukko(lista) {
     document.getElementById("tulostaulu").innerHTML = html
 }
 
+function naytaNimiHakuTaulukko(otsikko, lista) {
+  document.getElementById("tulosotsikko").textContent = otsikko;
+
+  let html = `
+    <tr>
+      <th>Nimi</th>
+      <th>Puolue</th>
+      <th>ID</th>
+      <th>Ministeri</th>
+      <th>Syntymävuosi</th>
+      <th>Vaalipiiri</th>
+    </tr>`;
+
+  if (lista.length === 0) {
+    html += `<tr><td colspan="4">(ei tuloksia)</td></tr>`;
+  } else {
+    for (const r of lista) {
+      html += `
+        <tr>
+          <td>${r.nimi}</td>
+          <td>${r.puolue}</td>
+          <td>${r.henkilonumero}</td>
+          <td>${r.ministeri ? "Kyllä" : "Ei"}</td>
+          <td>${r.syntymavuosi ?? ""}</td>
+          <td>${r.vaalipiiri ?? ""}</td>
+        </tr>`;
+    }
+  }
+
+  document.getElementById("tulostaulu").innerHTML = html;
+}
+
 
 // Alustukset
 taytaPuolueLista()
 document.getElementById("haenappula").addEventListener("click", haeEdustajat)
+
+document
+  .getElementById("haeNimiNappi")
+  .addEventListener("click", haeNimella);

@@ -14,6 +14,7 @@ tulos = pyynto.read().decode("utf-8")
 eduskunta = json.loads(tulos)
 print(len(eduskunta))
 
+
 @app.route("/hello/<personid>")
 def hello(personid):
     for ed in eduskunta:
@@ -29,6 +30,25 @@ def puolueen_edustajat(puolue):
             edustajalista.append(ed["first"] +" "+ ed["last"])
     return json.dumps(edustajalista)
 
+@app.route("/nimi/<hakusana>")
+def hae_edustaja_nimella(hakusana):
+    tulokset = []
+    hakusana = hakusana.lower()
+
+    for ed in eduskunta:
+        koko_nimi = (ed["first"] + " " + ed["last"]).lower()
+        if hakusana in koko_nimi:
+            tulokset.append({
+                "nimi": ed["first"] + " " + ed["last"],
+                "puolue": ed["party"],
+                "henkilonumero": ed["personNumber"],
+                "ministeri": ed["minister"],
+                "syntymavuosi": ed["bornYear"],
+                "vaalipiiri": ed["constituency"]
+            })
+
+    return json.dumps(tulokset)
+
 @app.route("/ministerit")
 def istuvat_ministerit():
     ministerilista = []
@@ -36,57 +56,6 @@ def istuvat_ministerit():
         if ed ["minister"] == True:
             ministerilista.append(ed["first"] +" "+ ed["last"])
     return json.dumps(ministerilista)
-
-@app.route('/summa')
-def summa():
-    args = request.args
-    print(args)
-
-    luku1 = float(args.get("luku1"))
-    luku2 = float(args.get("luku2"))
-    summa = luku1+luku2
-
-    vastaus = {
-        "luku1" : luku1,
-        "luku2" : luku2,
-        "summa" : summa
-    }
-
-    return vastaus
-
-@app.route('/restsumma/<luku1>/<luku2>')
-def restsumma(luku1, luku2):
-    try:
-        luku1 = float(luku1)
-        luku2 = float(luku2)
-        summa = luku1+luku2
-
-        tilakoodi = 200
-        vastaus = {
-            "status": tilakoodi,
-            "luku1": luku1,
-            "luku2": luku2,
-            "summa": summa
-        }
-
-    except ValueError:
-        tilakoodi = 400
-        vastaus = {
-            "status": tilakoodi,
-            "teksti": "Virheellinen yhteenlaskettava"
-        }
-
-    jsonvast = json.dumps(vastaus)
-    return Response(response=jsonvast, status=tilakoodi, mimetype="application/json")
-
-@app.errorhandler(404)
-def page_not_found(virhekoodi):
-    vastaus = {
-        "status" : "404",
-        "teksti" : "Virheellinen päätepiste"
-    }
-    jsonvast = json.dumps(vastaus)
-    return Response(response=jsonvast, status=404, mimetype="application/json")
 
 
 if __name__ == '__main__':
