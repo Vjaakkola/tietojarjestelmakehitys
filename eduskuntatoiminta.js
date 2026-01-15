@@ -32,6 +32,7 @@ async function haeEdustajat() {
     }
 }
 
+// Hae kirjotetun edustajan tiedot
 async function haeNimella() {
   const haku = document.getElementById("nimihaku").value.trim();
   if (!haku) return;
@@ -60,6 +61,7 @@ function teeTaulukko(lista) {
     document.getElementById("tulostaulu").innerHTML = html
 }
 
+// näytä thml taulukko edustajan tiedoista
 function naytaNimiHakuTaulukko(otsikko, lista) {
   document.getElementById("tulosotsikko").textContent = otsikko;
 

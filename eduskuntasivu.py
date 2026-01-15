@@ -13,14 +13,7 @@ pyynto = urllib.request.urlopen("https://users.metropolia.fi/~peterh/mps.json")
 tulos = pyynto.read().decode("utf-8")
 eduskunta = json.loads(tulos)
 print(len(eduskunta))
-
-
-@app.route("/hello/<personid>")
-def hello(personid):
-    for ed in eduskunta:
-        if ed ["personNumber"] == int(personid):
-            return json.dumps(ed)
-    
+ 
 
 @app.route("/<puolue>")
 def puolueen_edustajat(puolue):
