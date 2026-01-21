@@ -63,10 +63,12 @@ function teeTaulukko(lista) {
 
 // näytä thml taulukko edustajan tiedoista
 function naytaNimiHakuTaulukko(otsikko, lista) {
-  document.getElementById("tulosotsikko").textContent = otsikko;
+  const ots = document.getElementById("tulosotsikko");
+  if (ots) ots.textContent = otsikko;
 
   let html = `
     <tr>
+      <th>Kuva</th>
       <th>Nimi</th>
       <th>Puolue</th>
       <th>ID</th>
@@ -75,12 +77,15 @@ function naytaNimiHakuTaulukko(otsikko, lista) {
       <th>Vaalipiiri</th>
     </tr>`;
 
-  if (lista.length === 0) {
-    html += `<tr><td colspan="4">(ei tuloksia)</td></tr>`;
+  if (!lista || lista.length === 0) {
+    html += `<tr><td colspan="7">(ei tuloksia)</td></tr>`;
   } else {
     for (const r of lista) {
+        
+
       html += `
         <tr>
+        <td>${r.kuva ? `<img class="edkuva" src="http://127.0.0.1:3000${r.kuva}" alt="${r.nimi}">` : ""}</td>
           <td>${r.nimi}</td>
           <td>${r.puolue}</td>
           <td>${r.henkilonumero}</td>
@@ -93,6 +98,7 @@ function naytaNimiHakuTaulukko(otsikko, lista) {
 
   document.getElementById("tulostaulu").innerHTML = html;
 }
+
 
 
 // Alustukset

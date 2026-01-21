@@ -1,4 +1,4 @@
-from flask import Flask, request, Response
+from flask import Flask, request, Response, send_from_directory
 from flask_cors import CORS
 
 import json
@@ -37,10 +37,15 @@ def hae_edustaja_nimella(hakusana):
                 "henkilonumero": ed["personNumber"],
                 "ministeri": ed["minister"],
                 "syntymavuosi": ed["bornYear"],
-                "vaalipiiri": ed["constituency"]
+                "vaalipiiri": ed["constituency"],
+                "kuva": f"/kuvat/{ed['personNumber']}.jpg"
             })
 
     return json.dumps(tulokset)
+
+@app.route("/kuvat/<path:filename>")
+def kuvat(filename):
+    return send_from_directory("edustajakuvat", filename)
 
 @app.route("/ministerit")
 def istuvat_ministerit():
