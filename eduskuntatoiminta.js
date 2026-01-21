@@ -11,8 +11,6 @@ function taytaPuolueLista() {
     document.getElementById("puolueet").innerHTML = html
 }
 
-
-
 // Hae valitun puolueen edustajat
 async function haeEdustajat() {
     console.log("Hae edustajat kutsuttu")
@@ -47,8 +45,6 @@ async function haeNimella() {
     console.log("Virhe nimihauissa:", e);
   }
 }
-
-
 
 // Tee HTML-taulukko edustajista
 function teeTaulukko(lista) {
@@ -99,12 +95,8 @@ function naytaNimiHakuTaulukko(otsikko, lista) {
   document.getElementById("tulostaulu").innerHTML = html;
 }
 
-
-
 // Alustukset
 taytaPuolueLista()
 document.getElementById("haenappula").addEventListener("click", haeEdustajat)
 
-document
-  .getElementById("haeNimiNappi")
-  .addEventListener("click", haeNimella);
+document.getElementById("haeNimiNappi").addEventListener("click", haeNimella);
