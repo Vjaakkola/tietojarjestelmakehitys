@@ -5,6 +5,8 @@ body {
 }
 
 #ylaosa {
+    background-image: url('edkuva.png');
+    background-position: center;
     background-color: blueviolet;
     color: white;
     text-align: center;
