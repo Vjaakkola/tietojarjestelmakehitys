@@ -47,6 +47,14 @@ def hae_edustaja_nimella(hakusana):
 def kuvat(filename):
     return send_from_directory("edustajakuvat", filename)
 
+@app.route("/vaalipiiri/<vpiiri>")
+def vaalipiirin_edustajat(vpiiri):
+    edlista = []
+    for ed in eduskunta:
+        if ed ["constituency"] == vpiiri:
+            edlista.append(ed["first"] +" "+ ed["last"])
+    return json.dumps(edlista)
+
 @app.route("/ministerit")
 def istuvat_ministerit():
     ministerilista = []

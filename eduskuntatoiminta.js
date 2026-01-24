@@ -30,6 +30,36 @@ async function haeEdustajat() {
     }
 }
 
+// Tee HTML-taulukko edustajista
+function teeTaulukko(lista) {
+    let html = "<tr><th>Kansanedustajan nimi</th></tr>"
+
+    for (let nimi of lista) {
+        html += `<tr><td>${nimi}</td></tr>`
+    }
+
+    document.getElementById("tulostaulu").innerHTML = html
+}
+
+// hae valitun vaalipiirin edustajat // en osaa
+async function haevpiirinEdustajat() {
+    console.log("piirin edustajat kutsuttu")
+
+    let vpiiri = document.getElementById("vaapiiri").value
+    let url = `http://localhost:3000/vaalipiiri${vpiiri}`
+
+    try {
+        const vastaus = await fetch(url)
+        const json = await vastaus.json()
+
+        console.log("DEBUG:", json)
+        teeTaulukko(json)
+
+    } catch (e) {
+        console.log("Virhe:", e)
+    }
+}
+
 // Hae kirjotetun edustajan tiedot
 async function haeNimella() {
   const haku = document.getElementById("nimihaku").value.trim();
@@ -44,17 +74,6 @@ async function haeNimella() {
   } catch (e) {
     console.log("Virhe nimihauissa:", e);
   }
-}
-
-// Tee HTML-taulukko edustajista
-function teeTaulukko(lista) {
-    let html = "<tr><th>Kansanedustajan nimi</th></tr>"
-
-    for (let nimi of lista) {
-        html += `<tr><td>${nimi}</td></tr>`
-    }
-
-    document.getElementById("tulostaulu").innerHTML = html
 }
 
 // näytä thml taulukko edustajan tiedoista
@@ -100,3 +119,12 @@ taytaPuolueLista()
 document.getElementById("haenappula").addEventListener("click", haeEdustajat)
 
 document.getElementById("haeNimiNappi").addEventListener("click", haeNimella);
+
+// tää oli joku chatin antama eventListener vpiirikartalle (kartta ei toimi)
+document.querySelectorAll('map[name="workmap"] area').forEach(area => {
+  area.addEventListener("click", (e) => {
+    e.preventDefault(); // estää linkin "avaamisen"
+    const vpiiri = area.dataset.vpiiri;
+    if (vpiiri) haevpiirinEdustajat(vpiiri);
+  });
+});
