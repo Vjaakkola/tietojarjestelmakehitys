@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Valiokunnat</title>
+
+  <!-- SAMA TYYLI KUIN ALOITUSSIVULLA -->
+  <link rel="stylesheet" href="edtyyli.css" />
+</head>
+
+<body>
+
+  <div id="ylaosa">
+    <h1>VALIOKUNNAT</h1>
+    <nav class="navi">
+      <a href="ed.html" title="Takaisin etusivulle">etusivu</a>
+      <a href="vaalipiirit.html" title="Kartta vaalipiireistä">vaalipiirit</a>
+      <a href="hallitus.html" title="Tietoa hallituksesta">hallitus</a>
+      <a href="valiokunta.html" aria-current="page" title="Valiokunnat">valiokunnat</a>
+    </nav>
+  </div>
+
+  <div id="dataosa">
+    <h2>Mitä valiokunnat ovat?</h2>
+    <p>
+      Valiokunnat valmistelevat eduskunnan päätöksentekoa: ne käsittelevät lakiesityksiä,
+      kuulevat asiantuntijoita ja tekevät mietintöjä täysistuntoa varten.
+    </p>
+
+    <!-- Tähän voit myöhemmin lisätä haun / listauksen -->
+    <div class="haku-blokki">
+      <label class="label" for="valiokuntaHaku">Hae valiokunta (placeholder)</label>
+      <input id="valiokuntaHaku" type="text" placeholder="esim. talous" />
+      <button id="haeValiokunta">Hae</button>
+    </div>
+
+    <p id="tulosotsikko"></p>
+
+    <table id="tulostaulu">
+      <tr>
+        <th>Valiokunta</th>
+        <th>Huom.</th>
+      </tr>
+      <tr>
+        <td>(tähän tulokset)</td>
+        <td>Kun lisäät backend/JS-haun</td>
+      </tr>
+    </table>
+
+  </div>
+
+</body>
+</html>
