@@ -52,7 +52,15 @@ def vaalipiirin_edustajat(vpiiri):
     edlista = []
     for ed in eduskunta:
         if ed ["constituency"] == vpiiri:
-            edlista.append(ed["first"] +" "+ ed["last"])
+            edlista.append({
+                "nimi": ed["first"] + " " + ed["last"],
+                "puolue": ed["party"],
+                "henkilonumero": ed["personNumber"],
+                "ministeri": ed["minister"],
+                "syntymavuosi": ed["bornYear"],
+                "vaalipiiri": ed["constituency"],
+                "kuva": f"/kuvat/{ed['personNumber']}.jpg"
+            })
     return json.dumps(edlista)
 
 @app.route("/ministerit")

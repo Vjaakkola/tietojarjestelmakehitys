@@ -1,7 +1,14 @@
 body {
-    background-color: cadetblue;
+    background-color: rgb(181, 201, 241);
     margin: 0;
     font-family: Arial, sans-serif;
+    -webkit-text-stroke: 0,5px #000; /* reunus */
+}
+
+h1 {
+  color: #fff;
+  -webkit-text-stroke: 1px #000; /* reunus */
+  text-shadow: 3px #000;
 }
 
 #ylaosa {
@@ -14,28 +21,51 @@ body {
     font-size: 28px;
 }
 
+#nimihaku {
+    width: 275px;        /* leveys isommaksi */
+    height: 14px;        /* korkeus isommaksi */
+    padding: 10px 10px;   /* sisätilaa tekstille */
+    border-radius: 10px;
+    border: 2px solid #000;  /* määritä reunus itse */
+    box-shadow: none;        /* poista selaimen “varjot” */
+    outline: none;           /* poista focus-ääriviiva */
+    background: #fff;        /* halutessa tausta */
+}
+
+#linkki {
+    color: rgb(254, 255, 255);
+    text-decoration: none;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+}
+
 #dataosa {
-    background-color: gold;
-    padding: 20px;
+    background-color: rgb(131, 162, 220);
+    padding: 25px;
     text-align: center;
+}
+
+#puolueet{
+    border-radius: 10px;
+    margin-bottom: 10px;
 }
 
 select {
     width: 300px;
     padding: 8px;
     margin-bottom: 10px;
-    background: wheat;
-    border: 2px solid blueviolet;
-    color: blueviolet;
+    background: rgb(245, 244, 242);
+    border: 2px solid rgb(22, 22, 22);
+    color: rgb(25, 25, 26);
 }
 
 button {
     padding: 8px 20px;
-    background: wheat;
-    border: 2px solid blueviolet;
-    color: blueviolet;
+    background: rgb(247, 246, 244);
+    border: 2px solid rgb(11, 11, 11);
+    color: rgb(12, 12, 12);
     cursor: pointer;
     font-size: 16px;
+    border-radius: 10px;
 }
 
 table {
@@ -55,3 +85,13 @@ th, td {
   height: auto;
   border-radius: 6px;
 }
+
+nav a{
+  text-decoration: none;
+  color: #fff;
+
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.35); /* pieni varjo */
+  -webkit-text-stroke: 0.6px rgba(0,0,0,0.7); /* kevyt musta “reunus” */
+}
+
+
