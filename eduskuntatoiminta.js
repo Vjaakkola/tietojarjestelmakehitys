@@ -41,24 +41,44 @@ function teeTaulukko(lista) {
     document.getElementById("tulostaulu").innerHTML = html
 }
 
-// hae valitun vaalipiirin edustajat // en osaa
-async function haevpiirinEdustajat() {
-    console.log("piirin edustajat kutsuttu")
+function teeTaulukko(lista, otsikko = "Kansanedustajan nimi") {
+  let html = `<tr><th>${otsikko}</th></tr>`;
 
-    let vpiiri = document.getElementById("vaapiiri").value
-    let url = `http://localhost:3000/vaalipiiri${vpiiri}`
-
-    try {
-        const vastaus = await fetch(url)
-        const json = await vastaus.json()
-
-        console.log("DEBUG:", json)
-        teeTaulukko(json)
-
-    } catch (e) {
-        console.log("Virhe:", e)
+  if (!lista || lista.length === 0) {
+    html += `<tr><td>(ei tuloksia)</td></tr>`;
+  } else {
+    for (const nimi of lista) {
+      html += `<tr><td>${nimi}</td></tr>`;
     }
+  }
+
+  document.getElementById("tulostaulu").innerHTML = html;
 }
+
+async function haevpiirinEdustajat(vpiiri) {
+  const url = `http://127.0.0.1:3000/vaalipiiri/${encodeURIComponent(vpiiri)}`;
+
+  try {
+    const vastaus = await fetch(url);
+    const json = await vastaus.json();
+
+  
+    naytaNimiHakuTaulukko(`Vaalipiiri: ${vpiiri}`, json);
+  } catch (e) {
+    console.log("Virhe:", e);
+  }
+}
+
+
+// Kuuntele kaikkia mapin <area> klikkejä
+document.querySelectorAll('map[name="workmap"] area').forEach(area => {
+  area.addEventListener("click", (e) => {
+    e.preventDefault(); // estää linkin "avaamisen"
+    const vpiiri = area.dataset.vaapiiri;
+    if (vpiiri) haevpiirinEdustajat(vpiiri);
+  });
+});
+
 
 // Hae kirjotetun edustajan tiedot
 async function haeNimella() {
