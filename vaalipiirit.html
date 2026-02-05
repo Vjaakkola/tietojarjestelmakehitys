@@ -15,6 +15,12 @@
     
 #ylaosa{
     font-size: 28px;
+    color: #292986;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.35); /* pieni varjo */
+    -webkit-text-stroke: 0.6px rgba(0,0,0,0.7); /* kevyt musta “reunus” */
+    text-align: center;
+    padding: 5px;
+    font-size: 20px;
 }
 
 #dataosa{
@@ -23,19 +29,34 @@
     top: 100%;
 }
 
+nav a{
+  text-decoration: none;
+  color: #292986;
+
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.35); /* pieni varjo */
+  -webkit-text-stroke: 0.6px rgba(0,0,0,0.7); /* kevyt musta “reunus” */
+}
+
+
 </style>
 
 <body>
 
     <div id="ylaosa">
-        <h1>Vaalipiirit</h1>
-        
+    <h1>Vaalipiirit</h1>
+    <nav class="navi">
+      <a href="ed.html" title="Takaisin etusivulle">Etusivu</a>
+      <a href="vaalipiirit.html" title="Kartta vaalipiireistä">Vaalipiirit</a>
+      <a href="hallitus.html" title="Tietoa hallituksesta">Hallitus</a>
+      <a href="valiokunta.html" aria-current="page" title="Valiokunnat">Valiokunnat</a>
+    </nav>
+  </div>
     </div>
 
     <div id="dataosa">
 
     <div id="tiedot">
-        <p>tähän tulis sit ne vaalipiirin edustajat yms tiedot jnet</p>
+
         <table id="tulostaulu"></table>
     </div>
 

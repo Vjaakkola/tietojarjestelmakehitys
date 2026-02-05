@@ -11,21 +11,28 @@
 
     <div id="ylaosa">
         <h1>EDUSKUNTA</h1>
-        <a href="c:/flaski/vaalipiirit.html" title="kartta vaalipiireistä">vaalipiirit</a>
+    <nav class="navi">
+      <a href="ed.html" title="Takaisin etusivulle">Etusivu</a>
+      <a href="vaalipiirit.html" title="Kartta vaalipiireistä">Vaalipiirit</a>
+      <a href="hallitus.html" title="Tietoa hallituksesta">Hallitus</a>
+      <a href="valiokunta.html" aria-current="page" title="Valiokunnat">Valiokunnat</a>
+    </nav>
+  </div>
     </div>
-
+    
     <div id="dataosa">
-        <select id="puolueet"></select>
-
         <p>Hae valitun puolueen kansanedustajien nimet</p>
-
+        <select id="puolueet"></select>
+        
         <button id="haenappula">Hae</button>
+
 
         
         <div class="haku-blokki">
-            <label class="label" for="nimihaku">Hae nimellä</label>
-            <input id="nimihaku" type="text"/>
-            <button id="haeNimiNappi">Hae nimellä</button>
+            <p>Hae kansanedustaja nimellä</p>
+            <label class="label" for="nimihaku">
+            <input id="nimihaku" type="text" placeholder="Kansanedustajan nimi">
+            <button id="haeNimiNappi">Hae</button>
         </div>
 
         <p id="tulosotsikko"></p>
