@@ -1,0 +1,20 @@
+[
+  { "name": "Suuri valiokunta", "url": "https://www.eduskunta.fi/FI/valiokunnat/suuri_valiokunta/Sivut/default.aspx" },
+  { "name": "Perustuslakivaliokunta", "url": "https://www.eduskunta.fi/FI/valiokunnat/perustuslakivaliokunta/Sivut/default.aspx" },
+  { "name": "Ulkoasiainvaliokunta", "url": "https://www.eduskunta.fi/FI/valiokunnat/ulkoasiainvaliokunta/Sivut/default.aspx" },
+  { "name": "Valtiovarainvaliokunta", "url": "https://www.eduskunta.fi/FI/valiokunnat/valtiovarainvaliokunta/Sivut/default.aspx" },
+  { "name": "Tarkastusvaliokunta", "url": "https://www.eduskunta.fi/FI/valiokunnat/tarkastusvaliokunta/Sivut/default.aspx" },
+  { "name": "Hallintovaliokunta", "url": "https://www.eduskunta.fi/FI/valiokunnat/hallintovaliokunta/Sivut/default.aspx" },
+  { "name": "Lakivaliokunta", "url": "https://www.eduskunta.fi/FI/valiokunnat/lakivaliokunta/Sivut/default.aspx" },
+  { "name": "Liikenne- ja viestintävaliokunta", "url": "https://www.eduskunta.fi/FI/valiokunnat/liikenne-ja-viestintavaliokunta/Sivut/default.aspx" },
+  { "name": "Maa- ja metsätalousvaliokunta", "url": "https://www.eduskunta.fi/FI/valiokunnat/maa-ja-mets%C3%A4talousvaliokunta/Sivut/default.aspx" },
+  { "name": "Puolustusvaliokunta", "url": "https://www.eduskunta.fi/FI/valiokunnat/puolustusvaliokunta/Sivut/default.aspx" },
+  { "name": "Sivistysvaliokunta", "url": "https://www.eduskunta.fi/FI/valiokunnat/sivistysvaliokunta/Sivut/default.aspx" },
+  { "name": "Sosiaali- ja terveysvaliokunta", "url": "https://www.eduskunta.fi/FI/valiokunnat/sosiaali-ja-terveysvaliokunta/Sivut/default.aspx" },
+  { "name": "Talousvaliokunta", "url": "https://www.eduskunta.fi/FI/valiokunnat/talousvaliokunta/Sivut/default.aspx" },
+  { "name": "Tiedusteluvalvontavaliokunta", "url": "https://www.eduskunta.fi/FI/valiokunnat/tiedusteluvalvontavaliokunta/Sivut/default.aspx" },
+  { "name": "Tulevaisuusvaliokunta", "url": "https://www.eduskunta.fi/FI/valiokunnat/tulevaisuusvaliokunta/Sivut/default.aspx" },
+  { "name": "Työelämä- ja tasa-arvovaliokunta", "url": "https://www.eduskunta.fi/FI/valiokunnat/tyoelama-ja-tasaarvovaliokunta/Sivut/default.aspx" },
+  { "name": "Ympäristövaliokunta", "url": "https://www.eduskunta.fi/FI/valiokunnat/ymparistovaliokunta/Sivut/default.aspx" },
+
+]
