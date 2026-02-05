@@ -1,4 +1,5 @@
-[
+// valiokunnat.js
+const valiokunnat = [
   { "name": "Suuri valiokunta", "url": "https://www.eduskunta.fi/FI/valiokunnat/suuri_valiokunta/Sivut/default.aspx" },
   { "name": "Perustuslakivaliokunta", "url": "https://www.eduskunta.fi/FI/valiokunnat/perustuslakivaliokunta/Sivut/default.aspx" },
   { "name": "Ulkoasiainvaliokunta", "url": "https://www.eduskunta.fi/FI/valiokunnat/ulkoasiainvaliokunta/Sivut/default.aspx" },
@@ -15,6 +16,5 @@
   { "name": "Tiedusteluvalvontavaliokunta", "url": "https://www.eduskunta.fi/FI/valiokunnat/tiedusteluvalvontavaliokunta/Sivut/default.aspx" },
   { "name": "Tulevaisuusvaliokunta", "url": "https://www.eduskunta.fi/FI/valiokunnat/tulevaisuusvaliokunta/Sivut/default.aspx" },
   { "name": "Työelämä- ja tasa-arvovaliokunta", "url": "https://www.eduskunta.fi/FI/valiokunnat/tyoelama-ja-tasaarvovaliokunta/Sivut/default.aspx" },
-  { "name": "Ympäristövaliokunta", "url": "https://www.eduskunta.fi/FI/valiokunnat/ymparistovaliokunta/Sivut/default.aspx" },
-
-]
+  { "name": "Ympäristövaliokunta", "url": "https://www.eduskunta.fi/FI/valiokunnat/ymparistovaliokunta/Sivut/default.aspx" }
+];
