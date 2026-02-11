@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Valiokunnat</title>
 
-  <!-- SAMA TYYLI KUIN ALOITUSSIVULLA -->
   <link rel="stylesheet" href="edtyyli.css" />
 </head>
 
@@ -28,13 +27,41 @@
       kuulevat asiantuntijoita ja tekevät mietintöjä täysistuntoa varten.
     </p>
 
-    <!-- Tähän voit myöhemmin lisätä haun / listauksen -->
     <div class="haku-blokki">
-      <label class="label" for="valiokuntaHaku">Hae valiokunta</label>
-      <input id="valiokuntaHaku" type="text" placeholder="esim. talous" />
-      <button id="haeValiokunta">Hae</button>
-    </div>
-  </div>
+  <label class="label" for="valiokuntaSelect">Valitse valiokunta</label>
+  <select id="valiokuntaSelect">
+    <option value="">— Valitse —</option>
+  </select>
+  <button id="avaaValiokunta" disabled>Avaa</button>
+</div>
+
+<script src="valiokunnat.js"></script>
+<script>
+  const select = document.getElementById("valiokuntaSelect");
+  const btn = document.getElementById("avaaValiokunta");
+
+  if (typeof valiokunnat === "undefined" || !Array.isArray(valiokunnat)) {
+    console.error("valiokunnat-dataa ei löytynyt. Tarkista valiokunnat.js");
+  } else {
+    valiokunnat
+      .slice()
+      .sort((a, b) => a.name.localeCompare(b.name, "fi"))
+      .forEach(v => {
+        const opt = document.createElement("option");
+        opt.value = v.url;
+        opt.textContent = v.name;
+        select.appendChild(opt);
+      });
+  }
+
+  select.addEventListener("change", () => {
+    btn.disabled = !select.value;
+  });
+
+  btn.addEventListener("click", () => {
+    if (select.value) window.open(select.value, "_blank", "noopener");
+  });
+</script>
 
 </body>
 </html>
