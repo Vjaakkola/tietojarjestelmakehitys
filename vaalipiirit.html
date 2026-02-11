@@ -9,43 +9,64 @@
     <script src="eduskuntatoiminta.js" defer></script>
 </head>
 
-<style>
-#tiedot {
-    position: absolute;
-    left: 30%;
-    top: 0%;
-}
-    
-#ylaosa{
-    font-size: 28px;
-    color: #292986;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.35); /* pieni varjo */
-    -webkit-text-stroke: 0.6px rgba(0,0,0,0.7); /* kevyt musta “reunus” */
-    text-align: center;
-    padding: 5px;
-    font-size: 20px;
-}
+  <link rel="stylesheet" href="edtyyli.css" />
 
-#dataosa{
-    position: relative;
-    right: 4%;
-    top: 100%;
-}
+  <script defer src="eduskuntatoiminta.js"></script>
+  <script defer src="https://app.embed.im/snow.js"></script>
 
-nav a{
-  text-decoration: none;
-  color: #292986;
+  <style>
+    #dataosa {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 24px;
+      align-items: start;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 24px;
+    }
 
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.35); /* pieni varjo */
-  -webkit-text-stroke: 0.6px rgba(0,0,0,0.7); /* kevyt musta “reunus” */
-}
+    /* Vasen palsta (kartta) */
+    #kartta {
+      position: sticky;
+      top: 24px;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 12px;
+      padding: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,.12);
+    }
 
+    #karttakuva {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
 
-</style>
+    /* Oikea palsta (tiedot) */
+    #tiedot {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 12px;
+      padding: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,.12);
+      overflow-x: auto;
+    }
+
+    /* Mobiilissa kartta päälle ja tiedot alle */
+    @media (max-width: 900px) {
+      #dataosa {
+        grid-template-columns: 1fr;
+      }
+      #kartta {
+        position: relative;
+        top: 0;
+      }
+    }
+
+  </style>
+</head>
 
 <body>
-
-    <div id="ylaosa">
+  <div id="ylaosa">
     <h1>Vaalipiirit</h1>
     <nav class="navi">
       <a href="ed.html" title="Takaisin etusivulle">Etusivu</a>
@@ -54,34 +75,32 @@ nav a{
       <a href="valiokunta.html" aria-current="page" title="Valiokunnat">Valiokunnat</a>
     </nav>
   </div>
+
+  <div id="dataosa">
+    <!-- VASEN: Kartta -->
+    <div id="kartta">
+      <img id="karttakuva" src="vaalipiirikuva.jpg" usemap="#workmap" alt="Vaalipiirikartta">
+      <map name="workmap">
+        <area shape="rect" coords="495,41,235,399" alt="13" title="Lapin vaalipiiri" href="#" data-vaapiiri="Lappi">
+        <area shape="rect" coords="311,567,517,406" alt="12" title="Oulun vaalipiiri" href="#" data-vaapiiri="Oulu">
+        <area shape="rect" coords="316,741,373,601" alt="11" title="Keski-Suomen vaalipiiri" href="#" data-vaapiiri="Keski-Suomi">
+        <area shape="poly" coords="179,713,304,675,329,595,275,541,177,623" alt="10" title="Vaasan vaalipiiri" href="#" data-vaapiiri="Vaasa">
+        <area shape="poly" coords="495,686,531,730,585,640,508,569,376,567,389,685" alt="09" title="Savo-Karjalan vaalipiiri" href="#" data-vaapiiri="Savo-Karjala">
+        <area shape="poly" coords="433,856,519,750,495,696,435,717,389,694,386,829" alt="08" title="Kaakkois-Suomen vaalipiiri" href="#" data-vaapiiri="Kaakkois-Suomi">
+        <area shape="poly" coords="255,809,351,751,317,749,289,687,242,693,228,761" alt="07" title="Pirkanmaan vaalipiiri" href="#" data-vaapiiri="Pirkanmaa">
+        <area shape="poly" coords="303,843,334,822,377,832,377,753,327,770,246,818" alt="06" title="Hämeen vaalipiiri" href="#" data-vaapiiri="Häme">
+        <area shape="poly" coords="86,854,118,881,161,891,159,819,111,829" alt="05" title="Ahvenanmaan maakunnan vaalipiiri" href="#" data-vaapiiri="Ahvenanmaa">
+        <area shape="poly" coords="178,796,241,797,225,758,244,693,182,715" alt="04" title="Satakunnan vaalipiiri" href="#" data-vaapiiri="Satakunta">
+        <area shape="poly" coords="214,886,271,862,243,798,219,806,171,795,163,866" alt="03" title="Varsinais-Suomen vaalipiiri" href="#" data-vaapiiri="Varsinais-Suomi">
+        <area shape="poly" coords="316,863,387,871,377,830,331,825,287,836,231,901,297,893" alt="02" title="Uudenmaan vaalipiiri" href="#" data-vaapiiri="Uusimaa">
+        <area shape="poly" coords="359,904,331,865,314,870,309,906" alt="01" title="Helsingin vaalipiiri" href="#" data-vaapiiri="Helsinki">
+      </map>
     </div>
 
-    <div id="dataosa">
-
+    <!-- OIKEA: Tiedot -->
     <div id="tiedot">
-
-        <table id="tulostaulu"></table>
+      <table id="tulostaulu"></table>
     </div>
-
-        <img src="vaalipiirikuva.jpg" usemap="#workmap">
-
-<map name="workmap">
-  <area shape="rect" coords="495,41,235,399" alt="13" title="Lapin vaalipiiri" href="#" data-vaapiiri="Lappi">
-  <area shape="rect" coords="311,567,517,406" alt="12" title="Oulun vaalipiiri" href="#" data-vaapiiri="Oulu">
-  <area shape="rect" coords="316,741,373,601" alt="11" title="Keski-Suomen vaalipiiri" href="#" data-vaapiiri="Keski-Suomi">
-  <area shape="poly" coords="179,713,304,675,329,595,275,541,177,623" alt="10" title="Vaasan vaalipiiri" href="#" data-vaapiiri="Vaasa">
-  <area shape="poly" coords="495,686,531,730,585,640,508,569,376,567,389,685" alt="09" title="Savo-Karjalan vaalipiiri" href="#" data-vaapiiri="Savo-Karjala">
-  <area shape="poly" coords="433,856,519,750,495,696,435,717,389,694,386,829" alt="08" title="Kaakkois-Suomen vaalipiiri" href="#" data-vaapiiri="Kaakkois-Suomi">
-  <area shape="poly" coords="255,809,351,751,317,749,289,687,242,693,228,761" alt="07" title="Pirkanmaan vaalipiiri" href="#" data-vaapiiri="Pirkanmaa">
-  <area shape="poly" coords="303,843,334,822,377,832,377,753,327,770,246,818" alt="06" title="Hämeen vaalipiiri" href="#" data-vaapiiri="Häme">
-  <area shape="poly" coords="86,854,118,881,161,891,159,819,111,829" alt="05" title="Ahvenanmaan maakunnan vaalipiiri" href="#" data-vaapiiri="Ahvenanmaa">
-  <area shape="poly" coords="178,796,241,797,225,758,244,693,182,715" alt="04" title="Satakunnan vaalipiiri" href="#" data-vaapiiri="Satakunta">
-  <area shape="poly" coords="214,886,271,862,243,798,219,806,171,795,163,866" alt="03" title="Varsinais-Suomen vaalipiiri" href="#" data-vaapiiri="Varsinais-Suomi">
-  <area shape="poly" coords="316,863,387,871,377,830,331,825,287,836,231,901,297,893" alt="02" title="Uudenmaan vaalipiiri" href="#" data-vaapiiri="Uusimaa">
-  <area shape="poly" coords="359,904,331,865,314,870,309,906" alt="01" title="Helsingin vaalipiiri" href="#" data-vaapiiri="Helsinki">
-</map>
-    
-    </div>
-
+  </div>
 </body>
 </html>

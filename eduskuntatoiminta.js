@@ -1,7 +1,7 @@
 // Lataa dropdowniin puoluekoodit
 function taytaPuolueLista() {
     const puolueet = [
-        "sd", "kok", "vihr", "ps", "kesk", "vas", "r", "kd", "liik"
+       "Puolueet", "sd", "kok", "vihr", "ps", "kesk", "vas", "r", "kd", "liik"
     ]
 
     let html = ""
