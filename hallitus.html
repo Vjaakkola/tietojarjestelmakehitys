@@ -2,7 +2,7 @@
 <html lang="fi">
 <head>
     <meta charset="UTF-8">
-    <title>Hallitus</title>
+    <title>HALLITUS</title>
     <link rel="stylesheet" href="edtyyli.css">
     <script src="eduskuntatoiminta.js" defer></script>
 </head>
@@ -37,7 +37,7 @@
 </style>
 <body>
     <div id="ylaosa">
-        <h1>Hallitus</h1>
+        <h1>HALLITUS</h1>
     <nav class="navi">
       <a href="ed.html" title="Takaisin etusivulle">Etusivu</a>
       <a href="vaalipiirit.html" title="Kartta vaalipiireistä">Vaalipiirit</a>
@@ -45,6 +45,27 @@
       <a href="valiokunta.html" aria-current="page" title="Valiokunnat">Valiokunnat</a>
     </nav>
   </div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<div style="width: 300px; margin: auto;">
+  <canvas id="hallitusChart"></canvas>
+</div>
+
+
+<script>
+  const ctx = document.getElementById('hallitusChart');
+
+  new Chart(ctx, {
+    type: 'pie',
+    data: {
+      labels: ['SDP', 'Vihreät', 'RKP', 'Vasemmistoliitto', 'Keskusta'],
+      datasets: [{
+        data: [7, 3, 2, 2, 5], // Ministerien määrät (frekvenssit)
+        backgroundColor: [ '#ff0000', '#008000', '#4169e1', '#f08080', '#90ee90'],
+      }]
+    }
+  });
+</script>
 
     <p> Suomen hallitus käyttää maassa ylintä toimeenpanovaltaa ja johtaa valtionhallinnon päivittäistä toimintaa. Hallituksen keskeisimpiin tehtäviin kuuluu lakiesitysten ja valtion budjetin valmistelu eduskunnan päätettäväksi.</p>
     <img src="hallitus.webp" alt="Hallitus puolueiden johto" 
